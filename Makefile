@@ -1,12 +1,12 @@
-CC=afl-gcc
+CC=clang
 DEPS=main.c fuzzgoat.c
-ASAN=-fsanitize=address
+ASAN= #-fsanitize=address
 CFLAGS=-I.
 LIBS=-lm
 
 all: $(DEPS)
-	$(CC) -o fuzzgoat $(CFLAGS) $^ $(LIBS)
-	$(CC) $(ASAN) -o fuzzgoat_ASAN $(CFLAGS) $^ $(LIBS)
+	$(CC) -w -o fuzzgoat $(CFLAGS) $^ $(LIBS)
+	$(CC) -w -o fuzzgoat_ASAN $(CFLAGS) $^ $(LIBS)
 
 afl: fuzzgoat
 	afl-fuzz -i in -o out ./fuzzgoat @@

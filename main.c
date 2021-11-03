@@ -82,7 +82,7 @@ static void process_value(json_value* value, int depth)
         }
         switch (value->type) {
                 case json_none:
-                        printf("none\n");
+                        //printf("none\n");
                         break;
                 case json_object:
                         process_object(value, depth+1);
@@ -91,16 +91,16 @@ static void process_value(json_value* value, int depth)
                         process_array(value, depth+1);
                         break;
                 case json_integer:
-                        printf("int: %10" PRId64 "\n", value->u.integer);
+                        //printf("int: %10" PRId64 "\n", value->u.integer);
                         break;
                 case json_double:
-                        printf("double: %f\n", value->u.dbl);
+                        //printf("double: %f\n", value->u.dbl);
                         break;
                 case json_string:
-                        printf("string: %s\n", value->u.string.ptr);
+                        //printf("string: %s\n", value->u.string.ptr);
                         break;
                 case json_boolean:
-                        printf("bool: %d\n", value->u.boolean);
+                        //printf("bool: %d\n", value->u.boolean);
                         break;
         }
 }
@@ -166,4 +166,17 @@ int main(int argc, char** argv)
         json_value_free(value);
         free(file_contents);
         return 0;
+}
+
+void ProcessJson(const char * data) {
+        json_value* value;
+        value = json_parse(data, strlen(data));
+
+        if (value == NULL) {
+                return;
+        }
+
+        process_value(value, 0);
+
+        json_value_free(value);
 }
