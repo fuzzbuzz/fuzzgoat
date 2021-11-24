@@ -4,6 +4,7 @@ base:
   steps:
     - run: make
     - run: make fuzzer
+    - run: printenv
   sanitizers:
     address: {}
     undefined: {}
