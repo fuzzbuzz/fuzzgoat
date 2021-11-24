@@ -1,0 +1,9 @@
+base:
+  language: c
+  engine: libFuzzer
+  steps:
+    - run: make
+    - run: make fuzzer
+  sanitizers:
+    address: {}
+    undefined: {}

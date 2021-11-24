@@ -36,3 +36,5 @@ fuzzgoat_ASAN
 
 # Generated files
 out/
+parse-json-fuzzer
+fuzzgoat
