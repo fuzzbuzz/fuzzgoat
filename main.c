@@ -183,6 +183,7 @@ void ProcessJson(const char * data) {
         json_value_free(value);
 }
 
+#ifdef FUZZING
 int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t length) {
         json_value* value;
         value = json_parse(Data, length);
@@ -196,4 +197,5 @@ int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t length) {
         json_value_free(value);
         return 0;
 }
+#endif
 

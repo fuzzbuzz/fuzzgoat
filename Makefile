@@ -7,7 +7,7 @@ all: $(DEPS)
 	$(CC) -w -o fuzzgoat $(CFLAGS) $^ $(LIBS)
 
 fuzzer: $(DEPS)
-	$(CC) -w -o parse-json-fuzzer -DFUZZING $(CFLAGS) $(LIB_FUZZING_ENGINE) $^ $(LIBS)
+	$(CC) -w -o parse-json-fuzzer -fsanitize=fuzzer-no-link -pthread -DFUZZING $(CFLAGS) $(LIB_FUZZING_ENGINE) $^ $(LIBS)
 
 .PHONY: clean
 
