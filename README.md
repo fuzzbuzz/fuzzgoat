@@ -9,6 +9,7 @@ This repository contains a basic C project that includes an (intentionally insec
 
 3) A `fuzzbuzz.yaml` file, which tells Fuzzbuzz how to build the fuzzers, and configures the bug classes to look for
 
+
 ## Requirements
 
 Fuzzbuzz injects its own flags into code at compile time, which allows us to control the type of feedback we receive from your code. It also enables code coverage reporting and more detailed bug categorization. Your software and build system should be set up to properly work with these flags:
