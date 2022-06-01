@@ -18,6 +18,7 @@ Fuzzbuzz injects its own flags into code at compile time, which allows us to con
 
 - `$CFLAGS` and `$CXXFLAGS`: Fuzzbuzz provides these environment variables when building. Your program _must_ append these flags provided by the environment to its own flags. Features like code coverage reporting will not work unless these flags are properly consumed
 
+
 The `fuzzer` rule in the Makefile is a good example of how to include these flags in your fuzzer's compile steps.
 
 ## WARNING
